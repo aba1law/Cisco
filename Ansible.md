@@ -63,13 +63,13 @@ nano /ansible-testing/get_routers_snmp.yml
 	tasks:
 		- name: Configure zabbix
 		  ios_config:
-			lines:
+		  	lines:
 				- permit 10.10.23.51
 			parents: ip access-list standard acl_SNMP_RO
 
 		- name: Configure SNMP base settings
 		  ios_config:
-          lines:
+     lines:
 			- snmp-server community eR5pohP3vi RO acl_SNMP_RO
 			- snmp-server community public RO acl_SNMP_RO
 			- snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
