@@ -1,4 +1,4 @@
-# Configuration Ansible for SNMP Zabbix
+# Configuration MSTP
 
 ## Preparation
 
