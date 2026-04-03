@@ -125,6 +125,7 @@ Check
 ```shell
 show ip bgp summ
 show ip route
+clear ip bgp *
 ```
 ## Config is done
 
