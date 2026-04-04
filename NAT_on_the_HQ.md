@@ -11,16 +11,15 @@ vrf definition CORP
 ```
 Create router on VRF
 ```shell
-track 10 interface GigabitEthernet0/1 line-protocol
+track 10 interface GigabitEthernet0/0 line-protocol
 
-ip route vrf CORP 0.0.0.0 0.0.0.0 100.64.10.5 global track 10
-ip route vrf CORP 0.0.0.0 0.0.0.0 100.64.10.1 global 10
+ip route vrf CORP 0.0.0.0 0.0.0.0 100.64.10.1 global track 10
+ip route vrf CORP 0.0.0.0 0.0.0.0 100.64.10.5 global 10
 ```
 Access-list
 ```shell
 ip access-list extended NAT-CORP
  deny   ip host 10.10.0.1 any
- deny   ip host 10.10.0.2 any
  permit ip 10.10.10.0 0.0.0.255 any
  permit ip 10.10.20.0 0.0.0.255 any
  permit ip 10.10.30.0 0.0.0.255 any
@@ -37,7 +36,7 @@ route-map NAT-WAN2 permit 10
 ```
 NAT
 ```shell
-ip nat inside source route-map NAT-PE1 interface GigabitEthernet0/0 vrf CORP overload
-ip nat inside source route-map NAT-PE2 interface GigabitEthernet0/1 vrf CORP overload
+ip nat inside source route-map NAT-WAN1 interface GigabitEthernet0/0 vrf CORP overload
+ip nat inside source route-map NAT-WAN2 interface GigabitEthernet0/1 vrf CORP overload
 ```
 ## Config is done
