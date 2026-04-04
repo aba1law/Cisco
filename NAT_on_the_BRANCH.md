@@ -1,9 +1,5 @@
 # Configuration NAT for BR-EDGE
 
-## Preparation
-
-- Configure L2 network infrastructure firstly
-
 ### Configure
 Configuration of interface in VRF & WAN interface. Access-list and route for VRF CORP.
 ```shell
